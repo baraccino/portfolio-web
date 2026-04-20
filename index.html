@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frano Primorac</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
 :root {
+  color-scheme: only light;
   --bg: #0A0908;
   --bg1: #111009;
   --bg2: #1A1710;
@@ -439,37 +440,38 @@ footer {
 @media (max-width: 1024px) {
   #hero {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 420px;
+    grid-template-rows: auto 480px;
     min-height: auto;
   }
   .hero-right {
     display: block;
     position: relative;
     width: 100%;
-    height: 420px;
-    min-height: 420px;
+    height: 480px;
+    min-height: 480px;
+    margin-bottom: 24px;
   }
   .hero-right::after {
     background:
-      linear-gradient(180deg, var(--bg) 0%, transparent 12%, transparent 88%, var(--bg) 100%),
-      linear-gradient(90deg, var(--bg) 0%, transparent 5%, transparent 95%, var(--bg) 100%);
+      linear-gradient(180deg, var(--bg) 0%, rgba(10,9,8,0.0) 22%, transparent 70%, var(--bg) 92%, var(--bg) 100%),
+      linear-gradient(90deg, var(--bg) 0%, transparent 6%, transparent 94%, var(--bg) 100%);
   }
   .photo-cluster { position: absolute; inset: 0; }
   .ph-altitude {
-    width: 42%; height: 70%;
+    width: 42%; height: 64%;
     transform: translate(8%, -50%) rotate(-1deg);
   }
   .ph-herzegovina {
-    width: 32%; height: 42%;
-    transform: translate(-98%, -72%) rotate(5deg);
+    width: 32%; height: 38%;
+    transform: translate(-98%, -68%) rotate(5deg);
   }
   .ph-kyrgyzstan {
-    width: 30%; height: 44%;
-    transform: translate(-104%, 4%) rotate(-4deg);
+    width: 30%; height: 40%;
+    transform: translate(-104%, 8%) rotate(-4deg);
   }
   .ph-foi {
-    width: 34%; height: 34%;
-    transform: translate(44%, 20%) rotate(3deg);
+    width: 34%; height: 32%;
+    transform: translate(44%, 24%) rotate(3deg);
   }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .exp-grid { grid-template-columns: 1fr; }
@@ -783,6 +785,7 @@ echo "
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+#currently .section-header { justify-content: flex-start; }
 .currently-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -972,13 +975,13 @@ echo "
 .ph-foi {
   width: 34%; height: 34%;
   top: 50%; left: 50%;
-  transform: translate(22%, 20%) rotate(4deg);
+  transform: translate(30%, 20%) rotate(4deg);
   box-shadow: 0 8px 28px rgba(0,0,0,0.6);
   z-index: 4;
 }
 .ph-foi:hover {
   z-index: 20;
-  transform: translate(22%, 13%) rotate(1deg) scale(1.05);
+  transform: translate(30%, 13%) rotate(1deg) scale(1.05);
   box-shadow: 0 20px 60px rgba(0,0,0,0.8);
 }
 
@@ -994,7 +997,19 @@ echo "
 .photo-cluster { z-index: 10; }
 
 
-</style></head><body>
+
+@media (hover: none) and (pointer: coarse) {
+  .ph-card { -webkit-tap-highlight-color: transparent; }
+  .ph-card:hover { z-index: inherit; }
+  .ph-foi { z-index: 4; }
+  .ph-foi:hover { z-index: 4; transform: translate(30%, 20%) rotate(4deg) !important; }
+  .ph-card img { -webkit-tap-highlight-color: transparent; }
+  .photo-cluster { -webkit-transform: translateZ(0); transform: translateZ(0); }
+}
+
+</style></head><body>" >> /home/claude/frano_portfolio.html
+
+echo "File created, adding content..."
 <!-- CURSOR -->
 <div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
 
@@ -1267,7 +1282,7 @@ echo "
 
 <!-- FOOTER -->
 <footer>
-  <span>Frano Primorac · Zagreb, Croatia</span>
+  <span>Frano Primorac · 2026</span>
   <span>Built with intention, not a template.</span>
 </footer>
 
